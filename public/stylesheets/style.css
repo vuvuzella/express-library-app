@@ -1,0 +1,76 @@
+#body {
+    font-family : arial;
+}
+
+#info-div {
+    align : left;
+}
+#div-content {
+    width: 90%;
+    height : 100%;
+    margin: auto;
+    text-align: left;
+    border: 0px solid #ccc;
+    box-shadow: 5px 3px 3px #ccc;
+    padding: 0px;
+    // -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+	//  -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+	// 	  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+#div-menu {
+    //width: 40%;
+    /* margin: 0 auto; */
+    height : 800px;
+    float : left;
+    margin : 0px;
+    margin-right : 8px;
+    margin-top : 8px;
+    margin-bottom : 8px;
+    // margin-right : 5px;
+    // margin-left : 5px;
+    text-align: left;
+    border: 0px solid #ccc;
+    box-shadow: 3px 3px 3px #ccc;
+    padding: 5px;
+}
+
+#table-nav {
+    width : 180px;
+    margin : 0px;
+    padding : 0px;
+}
+#mainContent {
+    height : 100%;
+    float : left;
+    margin-bottom : 0px;
+}
+
+#footer {
+   /*  width: 99%;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid #ccc;
+    box-shadow: 0 3px 4px #ccc;
+    padding: 5px;
+    */
+    float : bottom;
+    margin : 0px;
+    background-color : #003466;
+    color : #FFFFFF;
+    clear : both;
+    padding : 2px;
+    text-align : center;
+}
+
+#horizontalRule {
+    background-color : #003466;
+    padding : 2px;
+    width: 99.8%    // this is not good? 100% exceeds the border of the div
+    
+}
+
+#header {
+    text-align: left;
+}
+

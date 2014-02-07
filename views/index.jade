@@ -1,0 +1,45 @@
+doctype html
+html
+    head
+        title #{title}
+        script(src='javascripts/main.js')
+        link(rel='stylesheet', href='stylesheets/style.css')
+    body#body
+        #div-content
+            #header-content
+                table#table-header
+                    tr
+                        td
+                            img(src='images/nec2.png') 
+                        td
+                            div#devinfo
+                                table
+                                    tr
+                                        td
+                                            label Date:
+                                    tr
+                                        td
+                                            label Logged in as: 
+            #horizontalRule
+            #div-menu
+                table#table-nav
+                    tr
+                        td: a(href='http://localhost:3000/') Books by Title
+                    tr
+                        td: a(href='http://localhost:3000/hello') Books by Book Number
+                    tr
+                        td: a(href='http://localhost:3000/hello') Add New Book
+                    tr
+                        td: a(href='http://localhost:3000/hello') Borrow Book
+                    tr
+                        td: a(href='http://localhost:3000/hello') Return Book
+                    tr
+                        td: a(href='http://localhost:3000/hello') Employee List
+                    tr
+                        td: a(href='http://localhost:3000/hello') Add New Employee
+                    tr
+                        td: a(href='http://localhost:3000/hello') Log-Out
+            #mainContent
+                            h3 #{header}
+                            p #{message}
+            #footer: small Copyright &copy NEC Telecom Software Philippines, Inc. 2014 All Rights Reserved
