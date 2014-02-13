@@ -1,1 +1,27 @@
-
+doctype html
+html
+    head
+        title #{title}
+        script(src='javascripts/main.js')
+        link(rel='stylesheet', href='stylesheets/style.css')
+    body#body
+        #div-content
+            #header-content
+                table#table-header
+                    tr
+                        td: img(src='images/nec2.png') 
+                        td
+                            div#devinfo
+                                table
+                                    tr
+                                        td
+                                            label Date:
+                                    tr
+                                        td
+                                            label Logged in as: #{username}
+            #horizontalRule
+            #div-menu
+                block navBar
+            #mainContent
+                block content
+            #footer: small Copyright &copy NEC Telecom Software Philippines, Inc. 2014 All Rights Reserved
