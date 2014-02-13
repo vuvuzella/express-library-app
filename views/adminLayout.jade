@@ -1,0 +1,22 @@
+// base screen view for admin views
+extends layout
+
+// Navigation bar
+block navBar
+    table
+        tr
+            td: a(href='http://localhost:3000/booksByTitle') View Books by Title
+        tr
+            td: a View Books by Book No.
+        tr
+            td: a Add New Book
+        tr
+            td: a Borrow Book
+        tr
+            td: a Return Book
+        tr
+            td: a Employee List
+        tr
+            td: a Add New Employee
+        tr
+            td: a Log Out

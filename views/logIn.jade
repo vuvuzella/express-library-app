@@ -1,0 +1,22 @@
+// Log in view that extends layout
+extends layout
+
+block navBar
+    div#nav-menu
+        table#table-nav
+            tr
+                // td: a(onClick='alert("log-in was clicked");') Log-In
+                td: a(href='http://localhost:3000/') Log-In
+            tr
+                td: a(onClick='alert("Contacting Admin");') Contact Administrator
+
+block content
+    h2 NSP Library System
+    div#log-in
+        table
+            tr
+                td: label username: 
+                td: input(type=text, size=50)
+            tr
+                td: label password:
+                td: input(type=text, size=50)
