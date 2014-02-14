@@ -1,7 +1,46 @@
 // Admin View books by title screen
 extends adminLayout
 
+
 block content
+    // explicitly invoking style inside a jade file is now discouraged
+    // use external css files instead.
+    // for study purposes, append a '.' after 'style' if using this tag.
+    style. 
+        select {
+            width : 100px; 
+        }
+        button {
+            width : 150px;
+        }
+        td {
+            border : 1px solid #ccc;
+        }
+        tr {
+            border : 1px solid #ccc;
+        }
+
     h2 View Books By Title
+    label Filter By:
+    select
+    button(type='button') Download List
     #table-div
-        !{table}
+        //!{table}
+        table
+            tr
+                th ISBN
+                th Title
+                th Author
+                th Total Books
+                th Available
+            // Generate the rows for the books
+            - for (var i in bookArray) {
+            tr
+                td #{bookArray[i].isbn}
+                td #{bookArray[i].title}
+                td #{bookArray[i].author}
+                td #{bookArray[i].total}
+                td #{bookArray[i].available}
+            - }
+
+
