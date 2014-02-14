@@ -1,0 +1,16 @@
+{
+  "name": "Library-System",
+  "version": "00.00.01",
+  "private": "true",
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "3.2.6",
+    "jade": "*",
+    "mysql": "latest"
+  },
+  "devDependencies": {
+    "markdown": "~0.5.0"
+  }
+}
