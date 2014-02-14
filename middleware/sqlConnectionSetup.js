@@ -11,8 +11,9 @@ var connectToSqlServer = function(username, pass, serverLocation) {
     connection = mysql.createConnection({
         host : serverLocation,
         user : username,
-        password : pass
-    }) ;
+        password : pass,
+        database : 'librarydb'
+    });
     connection.connect();   // create sql server connection
 };
 
@@ -26,7 +27,7 @@ var disconnect = function() {
     }
 };
 
-var useDB = function(db) {
+var useDB = function(db, fn) {
     if (connection === null) {
         return -1;
     }
@@ -35,10 +36,11 @@ var useDB = function(db) {
     });
 };
 
-var querySelect = function(columns, table) {
+var querySelect = function(columns, table, req, res) {
     if (connection === null) {
         return -1;
     }
+    res.locals.bookArray = [];
     var columnSelection = "";
     for (var i = 0; i < columns.length; i++){
         columnSelection += columns[i];
@@ -46,27 +48,35 @@ var querySelect = function(columns, table) {
             columnsSelection += ",";
         }
     }
-    var result;
-    connection.query('SELECT ' + columnSelection + ' FROM ' + table, function(err, results) {
-       if (err) throw err;
-       else
-       this.result = results;
+    // connection.query('SELECT ' + columnSelection + ' FROM ' + table, function(err, results) {
+    connection.query('SELECT * FROM ' + table, function(err, results) {
+        if (err) throw err;
+        else {
+            res.locals.bookArray = results;
+            res.render('booksByTitle');
+            console.log(res.locals.bookArray);
+        }
     });
-    return result;
 };
 
-var mysqlSetup = function(req, resp, next) {
+var mySqlSetup = function(req, res, next) {
    connectToSqlServer('root', '', 'localhost');
-   useDB('libraryDB');
+   // useDB('librarydb');
+   // querySelect('*', 'books_by_title', req, res); 
 
    // Testing the connection by querying
-   console.log(querySelect('*','employees'));
+   //console.log(querySelect('*','employees', disconnect) + ' data ');
    // next();
+   // disconnect();
+   console.log('mySqlSetup finished');
 };
 
-module.exports = {
-    mysqlSetup : mysqlSetup,
-    querySelect : querySelect,
-    disconnect : disconnect
-
-};
+// module.exports = {
+//     mySqlSetup : mySqlSetup,
+//     querySelect : querySelect,
+//     disconnect : disconnect
+// 
+// };
+exports.mySqlSetup = mySqlSetup;
+exports.querySelect = querySelect;
+exports.connection = connection;

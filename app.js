@@ -1,10 +1,10 @@
 var http = require('http');
 var express = require('express');
 var fs = require('fs'); // filesystem access
-var app = express();
+var app = express();    // Instance of Express
 var dbConfig = require('./config.json')[app.get('env')]; // contains the database configuration that is contained in config.json
-// var mysql = require('mysql');   // create the  connection to mysql as a middleware
-// var mysql = require('./middleware/sqlConnectionSetup')
+var mysql = require('mysql');   // create the  connection to mysql as a middleware
+// mysql = require('./middleware/sqlConnectionSetup');
 
 /* Constants */
 var PORT = 3000;    // create a config file for determining the port number
@@ -17,6 +17,28 @@ var PORT = 3000;    // create a config file for determining the port number
 app.set('view engine', 'jade');
 app.set('views', './views');
 
+// define variables for jade views
+// put this into a specific handler controller
+// app.use(function(req, res, next) {
+//     // make the contents of the book array come from the SQL server.
+//     res.locals.bookArray = [{
+//                                 isbn : 1234567890, 
+//                                 title : 'Express JS',
+//                                 author : 'Douglas Crockford',
+//                                 total : 5,
+//                                 available : 5
+//                            },
+//                            {
+//                                isbn : 222222, 
+//                                title : 'Programming in Dart',
+//                                author : 'Mr Google',
+//                                total : 1,
+//                                available : 0
+//                            }
+//                           ];
+//     next();
+// });
+
 /* default middleware */
 // app.use(express.logger('dev')); // console logging of events
 app.use(express.logger({format : 'dev', 
@@ -25,10 +47,25 @@ app.use(express.logger({format : 'dev',
 app.use(express.responseTime());
 app.use(app.router);  // Add router middleware first before adding router dependent middleware. Notice it is called from the instance of express()
 app.use(express.errorHandler());    // requires router middleware for this to work properly
+// app.use(function(req, res, next) {
+//     connection = mysql.createConnection({
+//         host : 'localhost',
+//         user : 'root',
+//         password : '',
+//         database : 'librarydb'
+//     });
+//     connection.connect();
+//     connection.query('SELECT * FROM books_by_title', function(err, result, field) {
+//         res.locals.bookArray = result;
+//         res.render('booksByTitle');
+//     });
+//     // next();
+// });
 var routes = require('./routes')(app);
 
 /* Set static locations to access files */
 app.use(express.static('./public/'));
+
 
 // app.use(mysql.mysqlSetup());
 //http.createServer(app).listen(PORT, function(req, resp) {
@@ -76,6 +113,5 @@ app.listen(PORT, 'localhost', function(req, resp) { // express way of starting t
 //     res.send(req.params.country + ', ' + req.params.state);
 //     next();
 // });
-
 
 console.log("Server running at http://localhost:" + PORT);

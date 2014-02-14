@@ -2,10 +2,10 @@
  * Router for the library app
  *
  */
-var routes = require('./handlers');
-var users = require('./handlers/users');
-var layout = require('./handlers/layout');
-var logIn = require('./handlers/logIn');
+// var routes = require('./handlers');
+// var users = require('./handlers/users');
+// var layout = require('./handlers/layout');
+// var logIn = require('./handlers/logIn');
 var admin = require('./handlers/adminViewHandler');
 
 module.exports = function(app) {

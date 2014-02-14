@@ -6,12 +6,12 @@
     align : left;
 }
 #div-content {
-    width: 90%;
+    width: 1200px;
     height : 100%;
     margin: auto;
     text-align: left;
     border: 0px solid #ccc;
-    box-shadow: 5px 3px 3px #ccc;
+    box-shadow: 5px 4px 3px #ccc;
     padding: 0px;
     // -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 	//  -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
@@ -19,7 +19,7 @@
 }
 
 #div-menu {
-    //width: 40%;
+    width: 190px;
     /* margin: 0 auto; */
     height : 800px;
     float : left;
@@ -36,9 +36,12 @@
 }
 
 #table-nav {
+    border : 1px solid black;
     width : 180px;
     margin : 0px;
     padding : 0px;
+}
+tr {
 }
 #mainContent {
     height : 100%;
