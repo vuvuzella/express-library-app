@@ -16,7 +16,8 @@ module.exports = function(app) {
     // app.get('/hello', users.users);
     // app.get('/list', users.list);
     // app.get('/layout', layout.layout);
-    // app.get('/logIn', logIn.logIn);
+    app.get('/', admin.login);
+    app.get('/logIn', admin.login);
     app.get('/booksByTitle', admin.booksByTitle);
     app.get('/addNewBook', admin.addNewBook);
     app.get('/borrowBook', admin.borrowBook);

@@ -10,15 +10,8 @@ html
                 table#table-header
                     tr
                         td: img(src='images/nec2.png') 
-                        td
-                            div#devinfo
-                                table
-                                    tr
-                                        td
-                                            label Date:
-                                    tr
-                                        td
-                                            label Logged in as: #{username}
+                        td: div#devinfo
+                            block loginInfo
             #horizontalRule
             #div-menu
                 block navBar

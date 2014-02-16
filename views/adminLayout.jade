@@ -1,6 +1,14 @@
 // base screen view for admin views
 extends layout
 
+// Login info
+block loginInfo
+    table
+        tr
+            td: label Date:
+        tr
+            td: label Logged in as: #{username}
+
 // Navigation bar
 block navBar
     table
