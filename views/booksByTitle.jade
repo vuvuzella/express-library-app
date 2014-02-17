@@ -41,6 +41,8 @@ block content
                     td #{bookArray[i].author}
                     td #{bookArray[i].total}
                     td #{bookArray[i].available}
+                    td(style="border:0px"): button.addQty Add Qty.
+                    td(style="border:0px"): button.edit Edit
             - }
         -} else {
             p Unable to connect to Database
