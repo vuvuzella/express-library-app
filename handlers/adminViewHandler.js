@@ -27,6 +27,7 @@ exports.booksByTitle = function(req, res) {
             res.render('booksByTitle');
         }
         else {
+            // Use wrapper to call query functions.
             connection.query('SELECT * FROM books_by_title', function(err, result, field) {
                 res.locals.bookArray = result;
                 res.render('booksByTitle');
@@ -37,6 +38,7 @@ exports.booksByTitle = function(req, res) {
 };
 
 exports.addNewBook = function(req, res) {
+    res.render('addNewBook');
 };
 
 exports.borrowBook = function(req, res) {

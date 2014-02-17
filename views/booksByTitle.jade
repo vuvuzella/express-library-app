@@ -13,11 +13,17 @@ block content
         button {
             width : 150px;
         }
-        td {
-            border : 1px solid #ccc;
+        // td {
+        //     border : 1px solid #ccc;
+        // }
+        // tr {
+        //     border : 1px solid #ccc;
+        // }
+        button.addQty {
+            width : 70px;
         }
-        tr {
-            border : 1px solid #ccc;
+        button.edit {
+            width : 70px;
         }
 
     h2 View Books By Title
@@ -26,7 +32,7 @@ block content
     button(type='button') Download List
     #table-div
         - if (bookArray) {
-        table
+        table#bookDataTable
             tr
                 th ISBN
                 th Title
@@ -42,7 +48,7 @@ block content
                     td #{bookArray[i].total}
                     td #{bookArray[i].available}
                     td(style="border:0px"): button.addQty Add Qty.
-                    td(style="border:0px"): button.edit Edit
+                    td(style="border:0px"): button(type='button', onclick='getRowData(this, "bookDataTable");').edit Edit
             - }
         -} else {
             p Unable to connect to Database

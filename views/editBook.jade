@@ -1,0 +1,26 @@
+// Edit book screen
+extends adminLayout
+
+block content
+    h2 Edit Book Entry
+    table
+        tr
+            td ISBN/Book Number:
+            td: input#isbnInput #{bookNumber}
+        tr
+            td Title:
+            td: input#titleInput #{title}
+        tr
+            td Author/s:
+            td: input#authorInput #{author}
+        tr
+            td Publisher/s:
+            td: input#publisherInput #{publisher}
+        tr
+            td Date Published:
+            td: input#publishDateInput #{publishDate}
+        tr
+            td Quantity:
+            td: input#quantityInput #{quantity}
+        tr
+            td: button#saveChanges Save

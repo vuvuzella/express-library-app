@@ -1,0 +1,31 @@
+// Add new book screen
+extends adminLayout
+
+block content
+    h2 Add New Book
+    style.
+        input {
+            width : 100px;
+        }
+    table
+        tr
+            td ISBN/Book Number:
+            td: input#isbnInput
+        tr
+            td Title:
+            td: input#titleInput
+        tr
+            td Author/s:
+            td: input#authorInput
+        tr
+            td Publisher/s:
+            td: input#publisherInput
+        tr
+            td Date Published:
+            td: input#publishDateInput
+        tr
+            td Quantity:
+            td: input#quantityInput
+        tr
+            td: button#saveNewBook Save
+    

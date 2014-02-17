@@ -1,7 +1,7 @@
 var http = require('http');
 var express = require('express');
 var fs = require('fs'); // filesystem access
-var app = express();    // Instance of Express
+app = express();    // Instance of Express
 var dbConfig = require('./config.json')[app.get('env')]; // contains the database configuration that is contained in config.json
 var mysql = require('mysql');   // create the  connection to mysql as a middleware
 // mysql = require('./middleware/sqlConnectionSetup');
@@ -47,21 +47,8 @@ app.use(express.logger({format : 'dev',
 app.use(express.responseTime());
 app.use(app.router);  // Add router middleware first before adding router dependent middleware. Notice it is called from the instance of express()
 app.use(express.errorHandler());    // requires router middleware for this to work properly
-// app.use(function(req, res, next) {
-//     connection = mysql.createConnection({
-//         host : 'localhost',
-//         user : 'root',
-//         password : '',
-//         database : 'librarydb'
-//     });
-//     connection.connect();
-//     connection.query('SELECT * FROM books_by_title', function(err, result, field) {
-//         res.locals.bookArray = result;
-//         res.render('booksByTitle');
-//     });
-//     // next();
-// });
-var routes = require('./routes')(app);
+
+var routes = require('./routes')(app);  // routes as a middleware.
 
 /* Set static locations to access files */
 app.use(express.static('./public/'));
