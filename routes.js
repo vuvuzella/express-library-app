@@ -25,4 +25,8 @@ module.exports = function(app) {
     app.get('/employeeList', admin.employeeList);
     app.get('/addNewEmployeeList', admin.addNewEmployee);
     app.get('/logOut', admin.logOut);
+
+    /* For testing purposes only */
+    app.get('/editbook', admin.editBook);
+    // app.post(); // sending data to the server from the page itself
 };

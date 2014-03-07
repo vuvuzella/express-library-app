@@ -37,6 +37,10 @@ exports.booksByTitle = function(req, res) {
     });
 };
 
+exports.editBook = function(req, res) {
+    res.render('editBook');
+};
+
 exports.addNewBook = function(req, res) {
     res.render('addNewBook');
 };
