@@ -20,3 +20,6 @@ To Run the webserver, run the ff: in app root directory:
 todo:
 search for an excellent excel api for node to be added to the library app.
 continue with book.
+
+New way of cloning from github:
+git clone http://username@github.com/repository.git
