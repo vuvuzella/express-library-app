@@ -13,12 +13,13 @@ block navBar
 block content
     h2 NSP Library System
     div#log-in
-        table
-            tr
-                td: label username: 
-                td: input(type=text, size=50)
-            tr
-                td: label password:
-                td: input(type=text, size=50)
-            tr
-                td: button#loginButton(type='button' width='100px') Log-In
+        form(action='/userlogin', method='post')
+            table
+                tr
+                    td: label username: 
+                    td: input(id='uname', type='text', size=50)
+                tr
+                    td: label password:
+                    td: input(id='pword', type='password', size=50)
+                tr
+                    td: input(id='loginForm', type='submit')

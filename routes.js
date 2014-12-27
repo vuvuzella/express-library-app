@@ -11,11 +11,6 @@ var admin = require('./handlers/adminViewHandler');
 module.exports = function(app) {
 
     /* Route definition separate from the app.js file */
-    // app.get('/', routes.index);
-    // app.get('/index', routes.index);
-    // app.get('/hello', users.users);
-    // app.get('/list', users.list);
-    // app.get('/layout', layout.layout);
     app.get('/', admin.login);
     app.get('/logIn', admin.login);
     app.get('/booksByTitle', admin.booksByTitle);
@@ -29,4 +24,11 @@ module.exports = function(app) {
     /* For testing purposes only */
     app.get('/editbook', admin.editBook);
     // app.post(); // sending data to the server from the page itself
+
+    // handling login requests
+    app.post('/userlogin', function(req, res) {
+        var uname = req.body.uname;
+        var pword = req.body.pword;
+        alert('username: ' + uname + '\npassword: ' + pword);
+    });
 };
